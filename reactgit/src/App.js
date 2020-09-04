@@ -1,13 +1,37 @@
-import React from "react";
+import React, { Component } from "react";
+import Pesquisa from "./components/pesquisa";
+import "./pesquisa.css";
+import api from "./services/api";
 
-import Lista from "./components/lista";
+import Header from "./components/header";
 
-function App() {
-  return (
-    <div className="App">
-      <Lista />
-    </div>
-  );
+class App extends Component {
+  state = {
+    texto: "",
+    repositories: [],
+  };
+
+  updateTexto = (texto) => {
+    this.setState({ texto });
+  };
+
+  addRepository = async () => {
+    const response = await api.get(`/repos/${this.state.texto}`);
+    console.log(response);
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <Pesquisa
+          query={this.state.texto}
+          updateTexto={this.updateTexto}
+          addRepository={this.addRepository}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
