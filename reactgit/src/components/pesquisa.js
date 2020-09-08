@@ -1,21 +1,18 @@
 import React from "react";
 import { Grid, Input, Button } from "semantic-ui-react";
+import logo from "../images/logo.svg";
 
 function Pesquisa(props) {
-  //const { query, repositories, updateQuery, addRepository } = props;
-  const { texto, addRepository, updateTexto } = props;
+  const { texto, repositories, addRepository, updateTexto } = props;
   return (
     <Grid centered className="search-component">
       <Grid.Row columns={3} verticalAlign="middle" className="search-header">
         <Grid.Column width={2}>
-          <img
-            alt="Logo do Github"
-            src="https://img.icons8.com/ios-glyphs/60/000000/github.png"
-          ></img>
+          <img alt="Logo" src={logo}></img>
         </Grid.Column>
         <Grid.Column width={8}>Repositórios</Grid.Column>
         <Grid.Column width={4} textAlign="right">
-          0
+          {repositories.length}
         </Grid.Column>
       </Grid.Row>
 
