@@ -28,6 +28,7 @@ class App extends Component {
         forks,
         url,
       } = response.data;
+
       let repo = {
         id,
         owner: { avatar_url, login },
@@ -70,7 +71,7 @@ class App extends Component {
   updateRepository = async (repo) => {
     const resp = await api.get(`/repos/${repo.login}/${repo.name}`);
 
-    console.log("OLD", repo);
+    console.log("velho", repo);
     console.log(repo.login);
 
     const {
@@ -93,7 +94,7 @@ class App extends Component {
       fullName,
     };
 
-    console.log("NEW", repo);
+    console.log("novo", repo);
 
     let newRepositories = this.state.repositories.map((r) =>
       r.id === repo.id ? repo : r

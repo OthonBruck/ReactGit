@@ -60,11 +60,13 @@ const Repository = (props) => {
         <Grid.Row>
           <Grid.Column width={16} textAlign="right">
             <img
+              alt="remover"
               className="repo-icons"
               src={remove}
               onClick={() => removeRepository(repo)}
             ></img>
             <img
+              alt="atualizar"
               className="repo-icons"
               src={update}
               onClick={() => updateRepository(repo)}
